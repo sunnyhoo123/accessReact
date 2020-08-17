@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'antd'
+import { Modal } from 'antd'
 
-class antLab extends Component {
+class Dialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
+      visible: this.props.visible,
     }
   }
 
@@ -15,29 +15,21 @@ class antLab extends Component {
     });
   };
 
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  handleOk() {
+    this.props.handleOk();
   };
 
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  handleCancel() {
+    this.props.handleCancel();
   };
 
   render() {
+    const {visible} = this.props;
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
-        </Button>
         <Modal
           title="Basic Modal"
-          visible={this.state.visible}
+          visible={visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
@@ -50,4 +42,4 @@ class antLab extends Component {
   }
 }
 
-export default antLab;
+export default Dialog;

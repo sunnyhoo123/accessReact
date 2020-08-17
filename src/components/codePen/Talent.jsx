@@ -4,6 +4,7 @@ import BraftEditor from 'braft-editor'
 // 引入编辑器样式
 import 'braft-editor/dist/index.css'
 import MaxLength from 'braft-extensions/dist/max-length'
+import styles from './Talent.less'
 
 const options = {
   defaultValue: 3, // 指定默认限制数，如不指定则为Infinity(无限)
@@ -34,13 +35,12 @@ export default class Talent extends React.Component {
   }
   handleEditorChange = (editorState) => {
     this.setState({ editorState })
-    console.log(editorState.toText().length, '777');
   }
 
   render() {
     const { editorState } = this.state
     return (
-      <div className="my-component">
+      <div className={styles.myComponent}>
         <BraftEditor
           value={editorState}
           maxLength={3}

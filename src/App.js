@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './components/toDo/Main';
 import Talent from './components/codePen/Talent';
-import AntLab from './components/antLab/Dialog';
+import AntLab from './components/antLab/index';
 
 function App() {
   return (
