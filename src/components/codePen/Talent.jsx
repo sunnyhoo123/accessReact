@@ -41,6 +41,7 @@ export default class Talent extends React.Component {
     const { editorState } = this.state
     return (
       <div className={styles.myComponent}>
+        <div className={styles.cricle}></div>
         <BraftEditor
           value={editorState}
           maxLength={3}
