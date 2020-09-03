@@ -4,14 +4,14 @@ import BraftEditor from 'braft-editor'
 // 引入编辑器样式
 import 'braft-editor/dist/index.css'
 import MaxLength from 'braft-extensions/dist/max-length'
+import { withRouter } from "react-router-dom";
 import styles from './Talent.less'
 
 const options = {
   defaultValue: 3, // 指定默认限制数，如不指定则为Infinity(无限)
 }
-
 BraftEditor.use(MaxLength(options))
-export default class Talent extends React.Component {
+class Talent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,12 +36,10 @@ export default class Talent extends React.Component {
   handleEditorChange = (editorState) => {
     this.setState({ editorState })
   }
-
   render() {
     const { editorState } = this.state
     return (
       <div className={styles.myComponent}>
-        <div className={styles.cricle}></div>
         <BraftEditor
           value={editorState}
           maxLength={3}
@@ -53,3 +51,4 @@ export default class Talent extends React.Component {
     );
   }
 }
+export default withRouter(Talent)
