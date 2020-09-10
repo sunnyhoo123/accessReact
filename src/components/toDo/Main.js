@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
+import { Button } from 'antd'
+import { withRouter } from "react-router-dom";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      postId: '112aas'
     }
     this.nextTodoId = 0;
   }
@@ -20,6 +23,8 @@ class Main extends Component {
         <AddTodo addTodo={this.addTodo}></AddTodo>
         <TodoList todos={todos} toggleTodo={this.toggleTodo}></TodoList>
         <Footer filter={filter} setVisibilityFilter={this.setVisibilityFilter}></Footer>
+        <Button type="ghost" onClick={this.linkToAnt}>antLab</Button>
+        <Button type="ghost" onClick={this.linkToTalent}>talent</Button>
       </div>
     );
   }
@@ -67,6 +72,17 @@ class Main extends Component {
       filter
     })
   }
+
+  linkToAnt = () => {
+    const { postId } = this.state;
+    const isLimited = false;
+    this.props.history.push(`/antLab?id=${postId}`, {isLimited})
+  }
+
+  linkToTalent = () => {
+    // window.open('/talent')
+    this.props.history.push('/talent')
+  }
 }
 
-export default Main;
+export default withRouter(Main);
