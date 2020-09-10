@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Button, Input, Upload, message } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import Dialog from './Dialog';
-import sss from '../codePen/Talent.less'
+import AntSelect from './AntSelect';
+import AntForm from './AntForm';
+import './index.css';
+import styles from './index.less';
+import classnames from 'classnames';
 
 const Search = Input.Search
 class antLab extends Component {
@@ -15,6 +19,10 @@ class antLab extends Component {
     }
   }
 
+  componentDidMount() {
+    const routeParams = this.props.history.location
+    console.log(routeParams, 'routeParams')
+  }
   showModal = () => {
     this.setState({
       visible: true,
@@ -74,6 +82,9 @@ class antLab extends Component {
     reader.readAsDataURL(img);
   }
 
+  handleClick = () => {
+    this.selectItem.preview()
+  }
   render() {
     const {visible,imageUrlList} = this.state;
     const uploadButton = (
@@ -100,10 +111,19 @@ class antLab extends Component {
           { uploadButton }
         </Upload>
         <Search maxLength={5}></Search>
-        <div className={sss.circle}></div>
         <Button type="primary" onClick={this.showModal}>
           Open Modal
         </Button>
+        <Button type="primary" onClick={this.handleClick}>
+          调用子组件select中的方法
+        </Button>
+        <div className={'boxShadow'}>不使用style的css</div>
+        <div className={classnames(styles.smallWidth, styles.bigHeigh)}>使用classnames</div>
+        <div className={`${styles.smallWidth} ${styles.bigHeigh}`}>多个classname</div>
+        <AntSelect
+          ref = {(e) => this.selectItem = e}
+        ></AntSelect>
+        <AntForm></AntForm>
         <Dialog
           visible={visible}
           handleOk={this.handleOk}

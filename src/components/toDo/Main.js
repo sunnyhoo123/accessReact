@@ -10,7 +10,8 @@ class Main extends Component {
     super(props);
     this.state = {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      postId: '112aas'
     }
     this.nextTodoId = 0;
   }
@@ -73,10 +74,13 @@ class Main extends Component {
   }
 
   linkToAnt = () => {
-    this.props.history.push('/antLab')
+    const { postId } = this.state;
+    const isLimited = false;
+    this.props.history.push(`/antLab?id=${postId}`, {isLimited})
   }
 
   linkToTalent = () => {
+    // window.open('/talent')
     this.props.history.push('/talent')
   }
 }

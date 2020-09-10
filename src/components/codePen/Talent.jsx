@@ -51,4 +51,4 @@ class Talent extends React.Component {
     );
   }
 }
-export default withRouter(Talent)
+export default Talent
