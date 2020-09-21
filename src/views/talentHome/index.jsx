@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Button } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import Lifecycle from '@views/lifecycle'
 
 const BcItem = Breadcrumb.Item;
 class TalentHome extends Component {
@@ -10,6 +11,12 @@ class TalentHome extends Component {
     this.state = {
       visible: false,
     }
+  }
+
+  handleClick = (path)=> {
+    this.props.history.push({
+      pathname: path
+    })
   }
 
   render() {
@@ -27,6 +34,9 @@ class TalentHome extends Component {
             <BcItem>Application</BcItem>
           </Breadcrumb>
         </div>
+        <Lifecycle></Lifecycle>
+        <Button onClick={this.handleClick.bind(this, '/boil')}>摄氏度转换</Button>
+        <Button onClick={() => this.handleClick('/ticTacToe')}>game:井字棋(tic-tac-toe)</Button>
       </div>
     );
   }

@@ -4,7 +4,6 @@ import BraftEditor from 'braft-editor'
 // 引入编辑器样式
 import 'braft-editor/dist/index.css'
 import MaxLength from 'braft-extensions/dist/max-length'
-import { withRouter } from "react-router-dom";
 import styles from './Talent.less'
 
 const options = {
