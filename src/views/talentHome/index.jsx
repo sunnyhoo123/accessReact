@@ -3,6 +3,11 @@ import styles from './index.less';
 import { Breadcrumb, Button } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import Lifecycle from '@views/lifecycle'
+import SortableComponent from '@components/drag/reactSortableHoc/'
+import VirtualListCom from '@components/drag/reactSortableHoc/virtual-list'
+import DragHandleCom from '@components/drag/reactSortableHoc/dragHandle.jsx'
+import SortAbleCom from '@components/drag/sortablejs/sortAble.jsx'
+import TableWithSortableColumns from '@components/drag/reactSortableHoc/virtual-table-columns.js'
 
 const BcItem = Breadcrumb.Item;
 class TalentHome extends Component {
@@ -21,7 +26,7 @@ class TalentHome extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.talentHome}>
         <div className={styles.pageHeader}>
           <Breadcrumb>
             <BcItem href="/">
@@ -34,9 +39,17 @@ class TalentHome extends Component {
             <BcItem>Application</BcItem>
           </Breadcrumb>
         </div>
-        <Lifecycle></Lifecycle>
-        <Button onClick={this.handleClick.bind(this, '/boil')}>摄氏度转换</Button>
-        <Button onClick={() => this.handleClick('/ticTacToe')}>game:井字棋(tic-tac-toe)</Button>
+        <div className={styles.pageBody}>
+          <Lifecycle></Lifecycle>
+          {/* <SortableComponent></SortableComponent> */}
+          {/* <VirtualListCom></VirtualListCom> */}
+          {/* <DragHandleCom></DragHandleCom> */}
+          <SortAbleCom></SortAbleCom>
+          {/* <TableWithSortableColumns></TableWithSortableColumns> */}
+          
+          <Button onClick={this.handleClick.bind(this, '/boil')}>摄氏度转换</Button>
+          <Button onClick={() => this.handleClick('/ticTacToe')}>game:井字棋(tic-tac-toe)</Button>
+        </div>
       </div>
     );
   }

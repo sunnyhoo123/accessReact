@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { Modal } from 'antd'
-
+import DThree from '@components/D3'
 class Dialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: this.props.visible,
+      visible: false,
     }
   }
-
+  
   showModal = () => {
     this.setState({
       visible: true,
     });
   };
 
-  handleOk() {
+  handleOk = () => {
     this.props.handleOk();
   };
 
-  handleCancel() {
+  handleCancel = () => {
     this.props.handleCancel();
   };
 
@@ -30,12 +30,12 @@ class Dialog extends Component {
         <Modal
           title="Basic Modal"
           visible={visible}
-          onOk={this.handleOk}
+          width="100%"
+          footer={null}
+          // onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <DThree></DThree>
         </Modal>
       </div>
     );

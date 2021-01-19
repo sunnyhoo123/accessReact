@@ -1,6 +1,5 @@
-// @ts-ignore
-/* eslint-disable */
 export default {
+  // 井字期计算赢家
   calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -19,5 +18,24 @@ export default {
       }
     };
     return null;
+  },
+
+  getUUID(length = 16) {
+    const initValue = Array.from('0123456789abcdefghijklmnopqrstuvwxyz');
+    if(isNaN(length)) {
+      return ''
+    }
+    if(length > initValue.length) {
+      return ''
+    }
+    const temp = [];
+    for(let i = 0;i < length; i++) {
+      const index = Math.round(Math.floor(Math.random() * (length -1)));
+      if(!(index < 0)){
+        temp.push(initValue[index]);
+      }
+    }
+    const uuid = temp.join('')
+    return uuid;
   }
 }

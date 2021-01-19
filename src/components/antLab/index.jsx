@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Input, Upload, message } from 'antd'
+import { Button, Input, Upload, message, Tag } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import Dialog from './Dialog';
 import AntSelect from './AntSelect';
+import AntTab from './AntTab';
 import AntForm from './AntForm';
 import './index.css';
 import styles from './index.less';
@@ -20,7 +21,12 @@ class antLab extends Component {
   }
 
   componentDidMount() {
-    const routeParams = this.props.history.location
+    const routeParams = this.props.history.location;
+    document.getElementById('select').onmousedown = (e) => {
+      if(e && e.preventDefault) {
+        e.preventDefault();
+      }
+    }
     console.log(routeParams, 'routeParams')
   }
   showModal = () => {
@@ -85,6 +91,9 @@ class antLab extends Component {
   handleClick = () => {
     this.selectItem.preview()
   }
+  scrollToTop = () => {
+    document.getElementsByClassName('antWrap')[0] = 0;
+  }
   render() {
     const {visible,imageUrlList} = this.state;
     const uploadButton = (
@@ -94,7 +103,7 @@ class antLab extends Component {
       </div>
     );
     return (
-      <div>
+      <div className={styles.antWrap}>
         <Upload
           multiple
           name="avatar"
@@ -114,21 +123,28 @@ class antLab extends Component {
         <Button type="primary" onClick={this.showModal}>
           Open Modal
         </Button>
-        <Button type="primary" onClick={this.handleClick}>
+        <Button id='select' type="primary" onClick={this.handleClick}>
           调用子组件select中的方法
         </Button>
-        <div className={'boxShadow'}>不使用style的css</div>
+        <div className='boxShadow'>不使用style的css</div>
         <div className={classnames(styles.smallWidth, styles.bigHeigh)}>使用classnames</div>
         <div className={`${styles.smallWidth} ${styles.bigHeigh}`}>多个classname</div>
         <AntSelect
           ref = {(e) => this.selectItem = e}
         ></AntSelect>
+        <AntTab></AntTab>
         <AntForm></AntForm>
+        <Tag closable color='#F2F3F5'>123tag
+          <span>kkk</span>
+        </Tag>
+        <Tag color="#f50">#f50</Tag>
+        <Tag color="blue">blue</Tag>
         <Dialog
           visible={visible}
           handleOk={this.handleOk}
           handleCancel={this.handleCancel}
         ></Dialog>
+        <Button type="ghost" onClick={this.scrollToTop}>回到顶部</Button>
       </div>
     );
   }
