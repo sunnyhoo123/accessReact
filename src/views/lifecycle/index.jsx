@@ -4,6 +4,7 @@ import { Button } from 'antd';
 
 class Lifecycle extends Component {
   constructor(props) {
+    console.log('父组件---constructor---')
     super(props);
     this.state = {
       date: new Date()
@@ -11,32 +12,32 @@ class Lifecycle extends Component {
   }
 
   componentWillMount() {
-    console.log('---componentWillMount---', this.state.date)
+    console.log('父组件---componentWillMount---', this.state.date)
   }
 
   componentDidMount() {
-    console.log('---componentDidMount---', this.state.date)
+    console.log('父组件---componentDidMount---', this.state.date)
     this.timerID = setInterval(() => this.tick, 1000);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('---componentWillReceiveProps---')
+    console.log('父组件---componentWillReceiveProps---')
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('---shouldComponentUpdate---')
+    console.log('父组件---shouldComponentUpdate---')
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log('---componentWillUpdate---')
+    console.log('父组件---componentWillUpdate---')
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('---componentDidUpdate---')
+    console.log('父组件---componentDidUpdate---')
   }
 
   componentWillUnmount() {
-    console.log('---componentWillUnmount---')
+    console.log('父组件---componentWillUnmount---')
     clearInterval(this.timerID);
   }
 
@@ -53,7 +54,7 @@ class Lifecycle extends Component {
   }
 
   render() {
-    console.log('---render---')
+    console.log('父组件---render---')
     return (
       <div>
         <Child ref={v => this.getRef = v}></Child>

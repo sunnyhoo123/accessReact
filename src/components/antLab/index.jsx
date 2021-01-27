@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Input, Upload, message, Tag } from 'antd'
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Input, Upload, message, Tag, Breadcrumb } from 'antd'
+import { LoadingOutlined, PlusOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import Dialog from './Dialog';
 import AntSelect from './AntSelect';
 import AntTab from './AntTab';
@@ -9,6 +9,7 @@ import './index.css';
 import styles from './index.less';
 import classnames from 'classnames';
 
+const BcItem = Breadcrumb.Item;
 const Search = Input.Search
 class antLab extends Component {
   constructor(props) {
@@ -22,12 +23,13 @@ class antLab extends Component {
 
   componentDidMount() {
     const routeParams = this.props.history.location;
+    const routeParams2 = this.props.location;
     document.getElementById('select').onmousedown = (e) => {
       if(e && e.preventDefault) {
         e.preventDefault();
       }
     }
-    console.log(routeParams, 'routeParams')
+    console.log(routeParams, routeParams2, 'routeParams')
   }
   showModal = () => {
     this.setState({
@@ -104,6 +106,14 @@ class antLab extends Component {
     );
     return (
       <div className={styles.antWrap}>
+        <div className={styles.pageHeader}>
+          <Breadcrumb>
+            <BcItem href="/">
+              <HomeOutlined />
+            </BcItem>
+            <BcItem>antLab</BcItem>
+          </Breadcrumb>
+        </div>
         <Upload
           multiple
           name="avatar"

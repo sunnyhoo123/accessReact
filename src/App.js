@@ -1,9 +1,9 @@
 import React from 'react';
 
 import home from '@views/home';
-// import talentHome from '@views/talentHome';
+import talentHome from '@views/talentHome';
 import toDo from './components/toDo/Main.js';
-import talent from './components/codePen/Talent.jsx';
+import codePen from './components/codePen';
 import antLab from './components/antLab';
 import boil from '@views/boiling';
 import TicTacToe from '@views/ticTacToe';
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/antLab" component={antLab}/>
-          <Route path="/talent" component={talent}/>
+          <Route path="/codePen" component={codePen}/>
           <Route path="/toDo" component={toDo}/>
           <Route path="/boil" component={boil}/>
           <Route path="/ticTacToe" component={TicTacToe}/>

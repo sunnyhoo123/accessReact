@@ -4,7 +4,7 @@ import BraftEditor from 'braft-editor'
 // 引入编辑器样式
 import 'braft-editor/dist/index.css'
 import MaxLength from 'braft-extensions/dist/max-length'
-import styles from './Talent.less'
+import styles from './index.less'
 
 const options = {
   defaultValue: 3, // 指定默认限制数，如不指定则为Infinity(无限)

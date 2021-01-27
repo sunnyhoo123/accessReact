@@ -10,15 +10,15 @@ import {
 } from '@ant-design/icons';
 import TalentHome from '@views/talentHome';
 import HookCom from '@views/hook';
+import Lifecycle from '@views/lifecycle'
 
 const { Header, Sider, Content } = Layout;
-
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       collapsed: false,
-      content: null
+      content: <TalentHome></TalentHome>
     }
   }
 
@@ -46,7 +46,7 @@ class Home extends Component {
         break;
       case '3':
         this.setState({
-          content: <TalentHome></TalentHome>
+          content: <Lifecycle></Lifecycle>
         })
         break;
       default:
@@ -62,13 +62,13 @@ class Home extends Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
             <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
+              home
             </Menu.Item>
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
+              hook
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
+              组件通信
             </Menu.Item>
           </Menu>
         </Sider>
@@ -88,8 +88,6 @@ class Home extends Component {
             }}
           >
             {content}
-            {/* { this.showCom } */}
-            {/* <TalentHome></TalentHome> */}
           </Content>
         </Layout>
       </Layout>

@@ -4,6 +4,9 @@ import styles from './index.less'
 
 // 井字棋游戏
 class TicTacToe extends Component {
+  componentDidMount() {
+    console.log(this.props.location.state)
+  }
   render() {
     return (
       <div className={styles.game}>

@@ -15,6 +15,9 @@ class Main extends Component {
     }
     this.nextTodoId = 0;
   }
+  componentDidMount() {
+    console.log(this.props.location.state)
+  }
   render() {
     const todos = this.getVisibleTodos();
     const { filter } = this.props;
@@ -80,8 +83,8 @@ class Main extends Component {
   }
 
   linkToTalent = () => {
-    // window.open('/talent')
-    this.props.history.push('/talent')
+    // 新建窗口
+    window.open('/codePen')
   }
 }
 

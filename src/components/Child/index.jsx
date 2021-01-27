@@ -3,37 +3,42 @@ import { Button } from 'antd';
 
 class Child extends Component {
   constructor(props) {
+    console.log('子组件---constructor---')
     super(props);
-
+    this.state = {
+      status: 'start'
+    }
   }
 
   componentWillMount() {
-
+    console.log('子组件---componentWillMount---', this.state.status)
   }
 
   componentDidMount() {
-
+    console.log('子组件---componentDidMount---', this.state.status)
   }
 
   componentWillReceiveProps(nextProps) {
-
+    console.log('子组件---componentWillReceiveProps---')
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-
+    console.log('子组件---shouldComponentUpdate---')
   }
 
   componentWillUpdate(nextProps, nextState) {
-
+    console.log('子组件---componentWillUpdate---')
   }
 
   componentDidUpdate(prevProps, prevState) {
-
+    console.log('子组件---componentDidUpdate---')
   }
 
   componentWillUnmount() {
-
+    console.log('子组件---componentWillUnmount---')
+    clearInterval(this.timerID);
   }
+
   handleClick = (type) => {
     switch (type) {
       case 1:
@@ -47,6 +52,7 @@ class Child extends Component {
     }
   }
   render() {
+    console.log('子组件---render---')
     return (
       <div ref={v => this.ref1 = v}>层一
         <Button onClick={() => this.handleClick(1)}>父元素</Button>

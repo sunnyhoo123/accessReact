@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   Sortable,
 } from 'sortablejs';
+import styles from './index.less';
 
 class SortAbleCom extends Component {
   constructor(props, context) {
@@ -9,10 +10,10 @@ class SortAbleCom extends Component {
   }
   componentDidMount() {
     const moveId = document.getElementById("listWithHandle");
-    console.log(moveId,222)
     Sortable.create(moveId, {
       handle: '.glyphicon-move',
-      animation: 150
+      animation: 150,
+      // forceFallback: true, 无法排序则换此方式
     });
   }
   render() {
@@ -23,36 +24,36 @@ class SortAbleCom extends Component {
       //   return this.renderSelectedItemView(item, i);
       // })}
       // </div>
-      <div id="listWithHandle" class="list-group">
-        <div class="list-group-item">
+      <div id="listWithHandle" class={styles.listGroup}>
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">1</span>
           Drag me by the handle
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">2</span>
           You can also select text
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">3</span>
           Best of both worlds!
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">4</span>
           Best of both worlds!
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">5</span>
           Best of both worlds!
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">6</span>
           Best of both worlds!
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">7</span>
           Best of both worlds!
         </div>
-        <div class="list-group-item">
+        <div class={styles.listGroupItem}>
           <span className="glyphicon glyphicon-move" aria-hidden="true">8</span>
           Best of both worlds!
         </div>
