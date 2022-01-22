@@ -1,0 +1,26 @@
+.scsscom {
+  display: block;
+  ul {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  li {
+    width: 50px;
+    background: #000;
+  }
+  @for $i from 1 through 10 {
+    li:nth-child(#{$i}) {
+      height: calc(#{$i} * 20px);
+    }
+  }
+  div {
+    position: fixed;
+  }
+  // 如果客户端支持 position:sticky，则采用 position:sticky，否则，就是 position:fixed
+  @supports (position: sticky) {
+    div {
+      position: sticky;
+    }
+  }
+}

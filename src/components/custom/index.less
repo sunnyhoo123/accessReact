@@ -1,0 +1,23 @@
+.antWrap {
+  height: 100%;
+  overflow: auto;
+}
+
+.pageHeader {
+  padding: 20px;
+  border-bottom: 10px solid #f5f6f8;
+}
+
+.multipleSpan {
+  height: 64px;
+  background-color: bisque;
+  > * {
+    line-height: 64px;
+  }
+}
+
+.icons {
+  &::before {
+    content: url("../../assets/test.svg");
+  }
+}

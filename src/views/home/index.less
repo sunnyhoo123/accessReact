@@ -1,0 +1,39 @@
+@bg: #fff;
+
+:global {
+  #layout-custom-trigger {
+    height: 100%;
+  }
+
+  #layout-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  #layout-custom-trigger .trigger:hover {
+    color: #1890ff;
+  }
+
+  #layout-custom-trigger .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 16px;
+  }
+}
+
+.siteLayout {
+  .siteLayoutBackground {
+    background: @bg;
+  }
+  .homeHeader {
+    display: flex;
+    align-items: center;
+    background: @bg;
+  }
+}

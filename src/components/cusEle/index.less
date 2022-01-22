@@ -1,0 +1,34 @@
+.inlineWrap {
+  .demoWrap {
+    background-color: #e5edff;
+    position: relative; // offsetParent：距离元素最近的一个具有定位的祖宗元素（relative，absolute，fixed），若祖宗都不符合条件，offsetParent为body
+    // line-height: 400px;
+    font-size: 0; // ‼️重要：此时content area高度是0，各种乱七八糟的线都在高度为0的这条线上，绝对中心线和中线重合
+  }
+  .justifyWrap {
+    text-align: justify;
+    .justifyFix {
+      display: inline-block;
+      width: 128px;
+    }
+  }
+  .ulWrap {
+    // justify可以让两端对齐
+    // 参考：https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/?shrink=1
+    // 但是发现react项目打包后没有按照书写的顺序一行行排列下来，可以在devtool中edit as html查看。如果用菜鸟教程或者原始html编写可以看到效果
+    text-align: justify;
+    width: 200px;
+    background: cyan;
+    li {
+      display: inline-block;
+      background-color: #0086b3;
+    }
+  }
+  .dibBaseline {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #cad5eb;
+    background-color: #f0f3f9;
+  }
+}
