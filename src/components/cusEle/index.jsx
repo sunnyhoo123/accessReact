@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Cusinline from "./components/Cusinline.jsx";
+import Cusinline from "./components/Cusinline";
 import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
