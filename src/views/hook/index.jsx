@@ -1,26 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
-
-import _ from "lodash";
 import axios from "axios";
+import _ from "lodash";
 import { weatherApi } from "@common/Api/api.js";
 
-import { Button } from "antd";
-import styles from "./index.less";
+import { Button, Tabs } from "antd";
 
 import HookRef from "./components/HookRef";
 import HookChild from "./components/HookChild";
 import HookChildA from "./components/HookChildA";
 import HookApi from "./components/HookApi";
 import HookMemo from "./components/HookMemo";
+import HookRouter from "./components/HookRouter/HookRouter";
+import HookCallback from "./components/HookCallback/HookCallback";
 import HookState from "./components/HookState";
 import HookEffect from "./components/HookEffect";
 import HookPlus from "./components/HookPlus";
 import HookFormik from "./form/HookFormik";
+import HookuseFormikPlus from "./form/HookuseFormikPlus";
+import HookuseFormik from "./form/HookuseFormik";
+import HookuseFormikYup from "./form/HookuseFormikYup";
+import OriginForm from "./form/OriginForm";
 import Parent from "./parent";
+import styles from "./index.less";
+
+const { TabPane } = Tabs;
 
 const HookCom = () => {
-  const history = useHistory();
   const hookRef = useRef(null);
 
   // 声明一个叫 “count” 的 state 变量。
@@ -80,33 +85,6 @@ const HookCom = () => {
     setWeatherList(res.data.data);
   };
 
-  const toPage = (path) => {
-    history.push({
-      pathname: `${path}:adv`,
-      search: "?resume=99",
-      state: { name: "kafuka" },
-      others: { id: 990 },
-    });
-  };
-
-  const toPage2 = () => {
-    const level = "mid";
-    const name = "fgm";
-    const id = 990;
-    const other = 100;
-    /* 
-    params传参：name/id，属性值为动态路由。优点：刷新页面，参数不丢失；缺点：1.只能传字符串等，传值过多url会变得很长 2. 参数必须在路由上配置
-    search传参：level。优点：刷新页面，参数不丢失；缺点：只能传字符串，传值过多url会变得很长，获取参数需要自定义hooks
-    state传参：id/other, 加密传参，不显示在路径上。优点：可以传对象；缺点：刷新页面，参数丢失
-     */
-    history.push(
-      `/hookRoute/${name}/${id}?level=${level}`,
-      // `/hookRoute/${name}?level=${level}`,
-      { id },
-      { other } // 注意：多传没用
-    );
-  };
-
   const handleRef = () => {
     hookRef.current.focus();
     console.log(hookRef, "***hookref");
@@ -128,37 +106,65 @@ const HookCom = () => {
   };
   console.log("render--", randomNum);
   return (
-    <div className={styles.hookWrap}>
-      <p>You clicked {count} times</p>
-      <Button onClick={() => setCount(count + 1)}>click me</Button>
-      <Button onClick={setState}>{cusObj.name}</Button>
-      <Button onClick={() => handleRef()}>调用子组件标签中的ref</Button>
-      <Button onClick={changeNum}>update num {randomNum} </Button>
-      <Button onClick={getWeather}>getWeather</Button>
-      <Button onClick={() => setShowChild(true)}>showChild</Button>
-      <Button onClick={() => toPage("/hookRoute")}>方式1:hook路由</Button>
-      <Button onClick={() => toPage2()}>方式2:hook路由</Button>
-      <HookRef count={count} ref={hookRef} />
-      <HookChild
-        num={randomNum}
-        staticObj={staticObj}
-        stateObj={stateObj}
-        weather={weather}
-        weatherList={weatherList}
-      />
-      {/* {
+    <Tabs defaultActiveKey="1" type="card">
+      <TabPane tab="State" key="1">
+        <HookState />
+      </TabPane>
+      <TabPane tab="Effect" key="2">
+        <HookEffect />
+      </TabPane>
+      <TabPane tab="Memo" key="3">
+        <HookMemo />
+      </TabPane>
+      <TabPane tab="Ref" key="4">
+        <HookRef count={count} ref={hookRef} />
+      </TabPane>
+      <TabPane tab="Callback" key="5">
+        <HookCallback />
+      </TabPane>
+      <TabPane tab="Plus" key="6">
+        <HookPlus />
+      </TabPane>
+      <TabPane tab="Formik" key="7">
+        <HookFormik />
+        {/* <HookuseFormik />
+        <HookuseFormikYup /> */}
+        {/* <HookuseFormikPlus /> */}
+        {/* <OriginForm /> */}
+      </TabPane>
+      <TabPane tab="HookRef" key="8">
+        <HookPlus />
+      </TabPane>
+      <TabPane tab="HookReeeeef" key="9">
+        <Parent></Parent>
+      </TabPane>
+      <TabPane tab="router" key="10">
+        <HookRouter></HookRouter>
+      </TabPane>
+      <TabPane tab="oth" key="11">
+        <div className={styles.hookWrap}>
+          <Button onClick={setState}>{cusObj.name}</Button>
+          <Button onClick={() => handleRef()}>调用子组件标签中的ref</Button>
+          <Button onClick={changeNum}>update num {randomNum} </Button>
+          <Button onClick={getWeather}>getWeather</Button>
+          <Button onClick={() => setShowChild(true)}>showChild</Button>
+
+          <HookChild
+            num={randomNum}
+            staticObj={staticObj}
+            stateObj={stateObj}
+            weather={weather}
+            weatherList={weatherList}
+          />
+          {/* {
         showChild && <HookChildA imgData={imgData} showChild={showChild}/>
       } */}
-      <HookChildA imgData={imgData} showChild={showChild} />
-      {/* <HookChild num={randomNum} staticObj={staticObj} staticNum={staticNum} /> */}
-      <HookApi weather={weather} weatherList={weatherList} />
-      <HookMemo />
-      <HookState />
-      <HookEffect />
-      <HookPlus />
-      <HookFormik />
-      <Parent></Parent>
-    </div>
+          <HookChildA imgData={imgData} showChild={showChild} />
+          {/* <HookChild num={randomNum} staticObj={staticObj} staticNum={staticNum} /> */}
+          <HookApi weather={weather} weatherList={weatherList} />
+        </div>
+      </TabPane>
+    </Tabs>
   );
 };
 

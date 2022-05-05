@@ -12,7 +12,7 @@ import { Button, Result } from "antd";
 
 import qs from "qs";
 
-const HookRoute = () => {
+const LinkPage = () => {
   const history = useHistory();
   const location = useLocation();
   const searchPa = qs.parse(location.search, { ignoreQueryPrefix: true }); // 获取search传参
@@ -30,7 +30,7 @@ const HookRoute = () => {
   };
 
   let match = useRouteMatch({
-    path: "/hookRoute:33",
+    path: "/LinkPage:33",
     strict: true,
     sensitive: true,
   });
@@ -64,4 +64,4 @@ const HookRoute = () => {
   );
 };
 
-export default HookRoute;
+export default LinkPage;

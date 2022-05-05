@@ -8,7 +8,7 @@ import antLab from "@views/antLab";
 import boil from "@views/boiling";
 import TicTacToe from "@views/ticTacToe";
 // import Lifecycle from '@views/lifecycle';
-import HookRoute from "@views/hook/components/HookRoute";
+import HookRoute from "@views/hook/components/HookRouter/LinkPage";
 import ClassRoute from "@views/talent/components/ClassRoute";
 
 function App() {

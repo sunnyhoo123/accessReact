@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import pet1 from "@assets/images/pet1.jpeg";
 import style from "../index.less";
+
 class Cusinline extends Component {
   constructor(props) {
     super(props);

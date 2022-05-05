@@ -44,3 +44,8 @@ input[type="submit"] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+.site-dropdown-context-menu {
+  color: #777;
+  background: #f7f7f7;
+}

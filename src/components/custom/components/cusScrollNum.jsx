@@ -3,6 +3,7 @@ import "../index.css";
 
 const ua = navigator.userAgent.toLowerCase();
 const testUA = (regexp) => regexp.test(ua);
+
 const isSafari = testUA(/safari/g) && !testUA(/chrome/g);
 
 class CusScrollNum extends Component {

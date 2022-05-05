@@ -1,6 +1,6 @@
-import React from 'react';
-import { Form, Button } from 'antd';
-import PriceInput from './PriceInput'
+import React from "react";
+import { Form, Button } from "antd";
+import PriceInput from "./PriceInput";
 
 const tailLayout = {
   wrapperCol: {
@@ -10,8 +10,7 @@ const tailLayout = {
 };
 
 const FormCustom = () => {
-
-  const onFinish = values => {
+  const onFinish = (values) => {
     console.log(values);
   };
 
@@ -20,7 +19,7 @@ const FormCustom = () => {
       return Promise.resolve();
     }
 
-    return Promise.reject(new Error('Price must be greater than zero!'));
+    return Promise.reject(new Error("Price must be greater than zero!"));
   };
 
   return (
@@ -32,7 +31,7 @@ const FormCustom = () => {
         initialValues={{
           price: {
             number: 0,
-            currency: 'rmb',
+            currency: "rmb",
           },
         }}
       >
@@ -55,5 +54,5 @@ const FormCustom = () => {
       </Form>
     </div>
   );
-}
+};
 export default FormCustom;

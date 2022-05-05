@@ -14,6 +14,7 @@ import {
   ClusterOutlined,
   RocketOutlined,
   TrophyOutlined,
+  HistoryOutlined,
 } from "@ant-design/icons";
 
 import TalentCom from "@views/talent";
@@ -22,6 +23,7 @@ import Lifecycle from "@views/lifecycle";
 import MultiComs from "@views/multiComs";
 import ChakraUI from "@views/chakraUI";
 import UseUtils from "@views/useUtils";
+import Upload from "@views/upload";
 
 import styles from "./index.less";
 
@@ -35,6 +37,7 @@ const childCom = [
   { path: "/multiComs", component: MultiComs, exact: false },
   { path: "/chakraUI", component: ChakraUI, exact: false },
   { path: "/useUtils", component: UseUtils, exact: false },
+  { path: "/upload", component: Upload, exact: false },
 ];
 
 class Home extends Component {
@@ -125,7 +128,7 @@ class Home extends Component {
             <Menu.Item key="1" icon={<VideoCameraOutlined />}>
               <Link to={"/hookCom"}>hook</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<UploadOutlined />}>
+            <Menu.Item key="2" icon={<HistoryOutlined />}>
               <Link to={"/lifecycle"}>生命周期</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<ClusterOutlined />}>
@@ -136,6 +139,9 @@ class Home extends Component {
             </Menu.Item>
             <Menu.Item key="5" icon={<TrophyOutlined />}>
               <Link to={"/useUtils"}>Utils</Link>
+            </Menu.Item>
+            <Menu.Item key="6" icon={<UploadOutlined />}>
+              <Link to={"/upload"}>Upload</Link>
             </Menu.Item>
           </Menu>
         </Sider>

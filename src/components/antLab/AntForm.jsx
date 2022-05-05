@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { Form, Input, Button, Select } from 'antd';
-import FormCustom from '@components/antLab/FormCustom';
+import { Form, Input, Button, Select } from "antd";
+import FormCustom from "@components/antLab/FormCustom";
 
 const { Option } = Select;
 const layout = {
@@ -22,13 +22,13 @@ const tailLayout = {
 class AntForm extends React.Component {
   formRef = React.createRef();
 
-  onGenderChange = value => {
+  onGenderChange = (value) => {
     this.formRef.current.setFieldsValue({
-      note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
+      note: `Hi, ${value === "male" ? "man" : "lady"}!`,
     });
   };
 
-  onFinish = values => {
+  onFinish = (values) => {
     console.log(values);
   };
 
@@ -38,15 +38,20 @@ class AntForm extends React.Component {
 
   onFill = () => {
     this.formRef.current.setFieldsValue({
-      note: 'Hello world!',
-      gender: 'male',
+      note: "Hello world!",
+      gender: "male",
     });
   };
 
   render() {
     return (
       <div>
-        <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
+        <Form
+          {...layout}
+          ref={this.formRef}
+          name="control-ref"
+          onFinish={this.onFinish}
+        >
           <Form.Item
             name="note"
             label="Note"
@@ -79,10 +84,12 @@ class AntForm extends React.Component {
           </Form.Item>
           <Form.Item
             noStyle
-            shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
+            shouldUpdate={(prevValues, currentValues) =>
+              prevValues.gender !== currentValues.gender
+            }
           >
             {({ getFieldValue }) =>
-              getFieldValue('gender') === 'other' ? (
+              getFieldValue("gender") === "other" ? (
                 <Form.Item
                   name="customizeGender"
                   label="Customize Gender"

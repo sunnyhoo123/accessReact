@@ -33,9 +33,9 @@ const validJSON = (json) => {
 // 在松散模式下，可以在函数中返回 this 来获取全局对象，但是在严格模式和模块环境下，this 会返回 undefined。
 
 const getGlobal = () => {
-  if (typeof self !== "undefined") {
-    return self;
-  }
+  // if (typeof self !== "undefined") {
+  //   return self;
+  // }
   if (typeof window !== "undefined") {
     return window;
   }

@@ -34,6 +34,7 @@ const data = [
   { name: "Rose", age: 36, address: "some where", key: "2" },
 ];
 
+
 class CusTable extends Component {
   constructor(props) {
     super(props);
