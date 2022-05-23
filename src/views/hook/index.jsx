@@ -143,7 +143,7 @@ const HookCom = () => {
       </TabPane>
       <TabPane tab="oth" key="11">
         <div className={styles.hookWrap}>
-          <Button onClick={setState}>{cusObj.name}</Button>
+          <Button onClick={setState}>{cusObj.name} 7777</Button>
           <Button onClick={() => handleRef()}>调用子组件标签中的ref</Button>
           <Button onClick={changeNum}>update num {randomNum} </Button>
           <Button onClick={getWeather}>getWeather</Button>

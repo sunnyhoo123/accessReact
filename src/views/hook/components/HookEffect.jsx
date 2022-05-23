@@ -4,6 +4,8 @@ import { Tag, Button } from "antd";
 
 const HookEffect = (props) => {
   const [count, setCount] = useState(0);
+  const [step1, setStep1] = useState(0);
+  const [step2, setStep2] = useState(0);
 
   /**
    * useEffect 规则
@@ -30,6 +32,17 @@ const HookEffect = (props) => {
       console.log("***useEffect clear***");
     };
   }, []);
+
+  useEffect(() => {
+    console.log(1111);
+    setStep1(step1 + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
+
+  useEffect(() => {
+    console.log(2222, step1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   return (
     <div>
