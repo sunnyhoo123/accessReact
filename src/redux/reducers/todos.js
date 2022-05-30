@@ -1,7 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO } from "@src/redux/actions";
 
 function todos(state = [], action) {
-  console.log("$$$");
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.texts];

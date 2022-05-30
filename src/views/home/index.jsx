@@ -51,7 +51,7 @@ class Home extends Component {
 
   componentDidMount() {
     const { activeMenu } = this.props;
-    console.log(activeMenu, "curMenu");
+    // console.log(activeMenu, "curMenu");
   }
 
   toggle = () => {
@@ -62,7 +62,6 @@ class Home extends Component {
 
   handleClick = ({ item, key, keyPath, domEvent }) => {
     // this.showCom(key);
-    console.log(key, typeof key, 999);
     localStorage.setItem("reactActiveMenu", key);
     const { patchSetMenu } = this.props;
     patchSetMenu(key);

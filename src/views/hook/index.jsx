@@ -13,7 +13,7 @@ import HookMemo from "./components/HookMemo";
 import HookRouter from "./components/HookRouter/HookRouter";
 import HookCallback from "./components/HookCallback/HookCallback";
 import HookState from "./components/HookState";
-import HookEffect from "./components/HookEffect";
+import HookEffect from "./components/Effect/index";
 import HookPlus from "./components/HookPlus";
 import HookFormik from "./form/HookFormik";
 import HookuseFormikPlus from "./form/HookuseFormikPlus";
@@ -59,7 +59,7 @@ const HookCom = () => {
    */
   useEffect(() => {
     // Update the document title using the browser API
-    console.log(count);
+    // console.log(count);
     return () => {
       // 注意：effect 的清除阶段在每次重新渲染时都会执行，而不是只在卸载组件的时候执行一次(如果没有第二个参数)
       console.log(
@@ -70,12 +70,12 @@ const HookCom = () => {
 
   useEffect(() => {
     document.title = `You clicked ${count} times`;
-    console.log(count, "仅在 count 更改时更新");
+    // console.log(count, "仅在 count 更改时更新");
   }, [count]); // 首次会渲染，仅在 count 更改时更新
 
   useEffect(() => {
     document.title = `You clicked ${count} times`;
-    console.log(count, "仅在 count 更改时更新");
+    // console.log(count, "仅在 count 更改时更新");
   }, [count]); // 首次会渲染，仅在 count 更改时更新
 
   const getWeather = async () => {
@@ -104,7 +104,7 @@ const HookCom = () => {
       return { ...prevState, ...updatedValues };
     });
   };
-  console.log("render--", randomNum);
+  console.log("render--entry");
   return (
     <Tabs defaultActiveKey="1" type="card">
       <TabPane tab="State" key="1">
@@ -132,11 +132,11 @@ const HookCom = () => {
         {/* <HookuseFormikPlus /> */}
         {/* <OriginForm /> */}
       </TabPane>
-      <TabPane tab="HookRef" key="8">
-        <HookPlus />
-      </TabPane>
-      <TabPane tab="HookReeeeef" key="9">
+      <TabPane tab="Nesting" key="8">
         <Parent></Parent>
+      </TabPane>
+      <TabPane tab="API" key="9">
+        <HookApi weather={weather} weatherList={weatherList} />
       </TabPane>
       <TabPane tab="router" key="10">
         <HookRouter></HookRouter>
@@ -161,7 +161,6 @@ const HookCom = () => {
       } */}
           <HookChildA imgData={imgData} showChild={showChild} />
           {/* <HookChild num={randomNum} staticObj={staticObj} staticNum={staticNum} /> */}
-          <HookApi weather={weather} weatherList={weatherList} />
         </div>
       </TabPane>
     </Tabs>

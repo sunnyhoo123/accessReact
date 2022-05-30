@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect } from "react";
-import styles from "../index.less";
+import styles from "../../index.less";
+
 import { Tag, Button } from "antd";
 
 const HookEffect = (props) => {
