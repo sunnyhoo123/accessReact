@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import home from "@views/home";
@@ -12,6 +12,9 @@ import HookRoute from "@views/hook/components/HookRouter/LinkPage";
 import ClassRoute from "@views/talent/components/ClassRoute";
 
 function App() {
+  useEffect(() => {
+    console.log("-----app-----");
+  }, []);
   return (
     <div className="App">
       <Router>
