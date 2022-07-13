@@ -12,7 +12,7 @@ import HookApi from "./components/HookApi";
 import HookMemo from "./components/HookMemo";
 import HookRouter from "./components/HookRouter/HookRouter";
 import HookCallback from "./components/HookCallback/HookCallback";
-import HookState from "./components/HookState";
+import HookState from "./components/State";
 import HookEffect from "./components/Effect/index";
 import HookPlus from "./components/HookPlus";
 import HookFormik from "./form/HookFormik";
@@ -20,6 +20,7 @@ import HookuseFormikPlus from "./form/HookuseFormikPlus";
 import HookuseFormik from "./form/HookuseFormik";
 import HookuseFormikYup from "./form/HookuseFormikYup";
 import OriginForm from "./form/OriginForm";
+import localImg from "@src/assets/images/pet1.jpeg";
 import Parent from "./parent";
 import styles from "./index.less";
 
@@ -104,6 +105,20 @@ const HookCom = () => {
       return { ...prevState, ...updatedValues };
     });
   };
+  const downLoadImg = (imgUrl) => {
+    var x = new XMLHttpRequest();
+    x.open("GET", imgUrl, true);
+    x.responseType = "blob";
+    x.onload = function (e) {
+      var url = window.URL.createObjectURL(x.response);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "";
+      a.click();
+    };
+    x.send();
+  };
+
   console.log("render--entry");
   return (
     <Tabs defaultActiveKey="1" type="card">
@@ -149,6 +164,29 @@ const HookCom = () => {
           <Button onClick={getWeather}>getWeather</Button>
           <Button onClick={() => setShowChild(true)}>showChild</Button>
 
+          <img
+            src={imgData.imgUrl}
+            alt="imgs"
+            width="200px"
+            height="200px"
+          ></img>
+          <img src={localImg} alt="imgs" width="200px" height="200px"></img>
+          {/* 同源图片才能直接用download */}
+          <a
+            href={localImg}
+            download
+            style={{
+              lineHeight: "35px",
+              display: "inline-block",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            Download local Img
+          </a>
+          <Button onClick={() => downLoadImg(imgData.imgUrl)}>
+            Download Url Img
+          </Button>
           <HookChild
             num={randomNum}
             staticObj={staticObj}

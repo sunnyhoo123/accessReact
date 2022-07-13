@@ -40,6 +40,8 @@ const childCom = [
   { path: "/upload", component: Upload, exact: false },
 ];
 
+const localActiveMenu = localStorage.getItem("reactActiveMenu");
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,7 @@ class Home extends Component {
 
   componentDidMount() {
     const { activeMenu } = this.props;
-    // console.log(activeMenu, "curMenu");
+    this.props.history.push(childCom[localActiveMenu]);
   }
 
   toggle = () => {
@@ -109,8 +111,8 @@ class Home extends Component {
   render() {
     const { content } = this.state;
     const { activeMenu } = this.props;
-    const localActiveMenu = localStorage.getItem("reactActiveMenu");
-
+    // const localActiveMenu = localStorage.getItem("reactActiveMenu");
+    // console.log(localActiveMenu, "localActiveMenu");
     return (
       <Layout id="layout-custom-trigger">
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
