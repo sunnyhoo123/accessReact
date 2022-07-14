@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Upload, message } from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import CusUpload from "./components/CusUpload";
+import CusUpload from "./components/upload/CusUpload";
+
+import CusDropzone from "./components/upload/CusDropzone";
+import CusUseDropzone from "./components/upload/CusUseDropzone";
+import CusUseDropzone1 from "./components/upload/CusUseDropzone1";
+
 class AntUpload extends Component {
   constructor(props) {
     super(props);
@@ -76,6 +81,9 @@ class AntUpload extends Component {
           {uploadButton}
         </Upload>
         <CusUpload />
+        <CusDropzone></CusDropzone>
+        <CusUseDropzone></CusUseDropzone>
+        <CusUseDropzone1></CusUseDropzone1>
       </div>
     );
   }
