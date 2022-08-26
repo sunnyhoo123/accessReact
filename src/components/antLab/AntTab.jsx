@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Tabs } from 'antd'
+import React, { Component } from "react";
+import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
@@ -8,9 +8,9 @@ class AntTab extends Component {
     super(props);
     this.state = {
       visible: false,
-    }
+    };
   }
-  
+
   render() {
     return (
       <div>
@@ -25,7 +25,6 @@ class AntTab extends Component {
             Tab 3eeee
           </TabPane>
         </Tabs>
-        
       </div>
     );
   }

@@ -1,8 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect } from "react";
 import { Tag, Button } from "antd";
 
-import Records from "./Records";
-
 const EffectAndFunc = (props) => {
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
@@ -47,12 +45,12 @@ const EffectAndFunc = (props) => {
   // }, [count]);
 
   useEffect(() => {
-    update();
+    // update();
     console.log("++EffectAndFunc");
   }, [update]);
 
   useEffect(() => {
-    update2();
+    // update2();
     console.log("++EffectAndFunc");
   }, [update2]);
 
@@ -73,7 +71,6 @@ const EffectAndFunc = (props) => {
       <Tag color="volcano">{num}</Tag>
       <Button onClick={() => setNum(num + 1)}>update num</Button>
       {/* <Button onClick={update}>update states</Button> */}
-      <Records></Records>
     </div>
   );
 };

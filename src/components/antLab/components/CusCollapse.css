@@ -12,7 +12,7 @@
 }
 
 /* 设置点击和鼠标移到选项上面时（悬停）的样式 */
-.active,
+.cusCollapse,
 .accordion:hover {
   background-color: #ccc;
 }
@@ -34,6 +34,6 @@
   margin-left: 5px;
 }
 
-.active:after {
+.cusCollapse:after {
   content: "\2212"; /* Unicode 字符 - 号 */
 }
