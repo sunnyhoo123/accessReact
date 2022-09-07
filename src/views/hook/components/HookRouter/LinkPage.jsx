@@ -18,7 +18,14 @@ const LinkPage = () => {
   const searchPa = qs.parse(location.search, { ignoreQueryPrefix: true }); // 获取search传参
   const uPa = useParams(); // 获取params传参
   const statePa = location.state;
-  console.log(location, statePa, searchPa, uPa, "location");
+  console.log(
+    location,
+    new URLSearchParams(location.search).get("level"), // 通过原生方法，获取search传参
+    statePa,
+    searchPa,
+    uPa,
+    "location"
+  );
   const string = "Glory of Kings";
   console.log(
     "I do like %c%s",

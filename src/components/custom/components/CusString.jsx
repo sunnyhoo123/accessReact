@@ -17,7 +17,6 @@ const CusString = () => {
       const baseWidth = window.getComputedStyle(ele).width;
       const baseFontSize = window.getComputedStyle(ele).fontSize;
       const lineWidth = +baseWidth.slice(0, -2);
-      console.log(baseWidth, 999);
 
       // 所计算的strNum为元素内部一行可容纳的字数(不区分中英文)
       const strNum = Math.floor(lineWidth / +baseFontSize.slice(0, -2));
@@ -39,13 +38,17 @@ const CusString = () => {
 
     formatStr();
 
+    // 只能监听浏览器宽高
     window.onresize = () => {
       formatStr();
     };
   };
+  const handleresize = () => {
+    console.log("普通标签无法监听resize");
+  };
   return (
     <>
-      <div className="cus-con">
+      <div className="cus-con" onresize={handleresize}>
         <div className="cus-wrap">
           <div className="cus-txt">{text}</div>
           <div className="cus-title" title={text}>

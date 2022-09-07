@@ -1,0 +1,14 @@
+.resize-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10rem;
+  width: 10rem;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  /* resize: both; 用户可以调节元素的宽度和高度 */
+  resize: horizontal; /*用户可以调节元素的宽度*/
+  display: block;
+  box-shadow: 0 0 1px 1px #3361d8;
+  border-radius: 2px;
+}

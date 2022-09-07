@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Tag, Button } from "antd";
 
-const HookEffect = (props) => {
+const EffectRule = (props) => {
   const [count, setCount] = useState(0);
 
   /**
@@ -46,4 +46,4 @@ const HookEffect = (props) => {
   );
 };
 
-export default HookEffect;
+export default EffectRule;
