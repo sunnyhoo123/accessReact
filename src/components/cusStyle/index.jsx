@@ -30,6 +30,20 @@ class Custom extends Component {
                 多个classname
               </div>
               <div className={styles.pos}>定位</div>
+              <div className="text-link">
+                If, at any time, you have specific questions or concerns about
+                the accessibility of any particular web page on the Website,
+                then please contact us by e-mail at
+                <a href="mailto:customercare@michaels.com">
+                  {" "}
+                  customercare@michaels.com
+                </a>{" "}
+                or by phone at <a href="tel:800-642-4235">800.642.4235</a>. If
+                you do encounter an accessibility issue, then please be sure to
+                specify the web page and nature of the issue, and we will make
+                all reasonable efforts to make that page or the information
+                contained therein accessible for you. Thanks for visiting.
+              </div>
             </div>
           </TabPane>
           <TabPane tab="css" key="2">

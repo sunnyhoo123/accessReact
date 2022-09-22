@@ -171,7 +171,7 @@ const HookCom = () => {
             height="200px"
           ></img>
           <img src={localImg} alt="imgs" width="200px" height="200px"></img>
-          {/* 同源图片才能直接用download */}
+          {/* 注意：同源图片才能直接用download */}
           <a
             href={localImg}
             download

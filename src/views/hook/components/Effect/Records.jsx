@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
-import { useEffect, useState } from "react";
-import { Tag, Button } from "antd";
+import React, { useEffect, useState } from "react";
+import { unstable_batchedUpdates } from "react-dom";
 
 const types = ["个人记录", "家属记录"];
 const statusList = ["全部预约", "待支付", "已受理"];
@@ -29,12 +28,22 @@ export default function Records() {
   }, [type, status]);
 
   const changeType = (val) => {
-    setType(val);
-    changeType22();
-  };
+    // setType(val);
+    // setStatus("全部预约");
 
-  const changeType22 = (val) => {
-    setStatus("全部预约");
+    // 注意：React不会将异步代码里面的多次状态更新进行合并。 比如常见的setTimeout,Promise等等这些异步操作
+    // Promise.resolve().then(() => {
+    //   setType(val);
+    //   setStatus("全部预约");
+    // });
+
+    // 注意：为了解决异步批量更新状态引起的问题，react提供了一个临时的api unstable_batchedUpdates 进行批量更新
+    Promise.resolve().then(() => {
+      unstable_batchedUpdates(() => {
+        setType(val);
+        setStatus("全部预约");
+      });
+    });
   };
 
   return (
