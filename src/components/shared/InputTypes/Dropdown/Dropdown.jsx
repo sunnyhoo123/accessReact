@@ -1,19 +1,20 @@
-import PropTypes from 'prop-types';
-import theme from '@bit/mik-technology.core.theme';
-import Text from '@bit/mik-technology.core.text';
-import { IconCaretDown } from '@tabler/icons';
+import React from "react";
+import PropTypes from "prop-types";
+import theme from "@bit/mik-technology.core.theme";
+import Text from "@bit/mik-technology.core.text";
+import { IconCaretDown } from "@tabler/icons";
 import {
   Wrapper,
   Label,
   StyledSelect,
-} from 'components/shared/InputTypes/TextField/TextField.styles';
+} from "components/shared/InputTypes/TextField/TextField.styles";
 /**
  * Represents a select dropdown in forms.
  */
 function Dropdown({
   label,
   id,
-  errorMessage = '',
+  errorMessage = "",
   handleChange,
   handleBlur,
   value,
@@ -48,7 +49,7 @@ function Dropdown({
         onBlur={handleBlur}
         value={value}
         border={border}
-        borderColor={errorMessage ? 'semantics.error' : 'semantics.default'}
+        borderColor={errorMessage ? "semantics.error" : "semantics.default"}
         // iconColor={errorMessage ? 'semantics.error' : 'semantics.default'}
         iconColor={theme.colors.semantics.default}
         isTruncated

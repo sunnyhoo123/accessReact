@@ -6,21 +6,21 @@ import _ from "lodash";
 const HookChildB = ({ setList, existing = [] }) => {
   const [materials, setMaterials] = useState([]);
   const [materialsData, setMaterialsData] = useState([]);
-  console.log(existing, 'init');
-  
+  console.log(existing, "init HookChildB");
+
   useEffect(() => {
     // return () => clearTimeout(fn)
   }, []);
 
   useEffect(() => {
-    console.log(materials, 'materials');
+    console.log(materials, "materials");
 
     // return () => clearTimeout(fn)
-    setMaterialsData(materials)
+    setMaterialsData(materials);
   }, [materials]);
 
   useEffect(() => {
-    console.log(existing, 'existing');
+    console.log(existing, "existing");
     // return () => clearTimeout(fn)
   }, [existing]);
 
@@ -33,7 +33,9 @@ const HookChildB = ({ setList, existing = [] }) => {
     <div className={styles.hookWrap}>
       <Button onClick={() => childSetList(1)}>click 1</Button>
       <Button onClick={() => childSetList(2)}>click 2</Button>
-      <Button onClick={() => setMaterials(_.random(0, 9))}>change materials</Button>
+      <Button onClick={() => setMaterials(_.random(0, 9))}>
+        change materials
+      </Button>
       <Tag color="geekblue">{materialsData}</Tag>
     </div>
   );

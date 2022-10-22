@@ -42,6 +42,75 @@ const treeData = [
   },
 ];
 
+const MY_ENDLESS_LIST = [
+  {
+    key: 1,
+    value: "A",
+  },
+  {
+    key: 2,
+    value: "B",
+  },
+  {
+    key: 3,
+    value: "C",
+  },
+  {
+    key: 4,
+    value: "C",
+  },
+  {
+    key: 5,
+    value: "C",
+  },
+  {
+    key: 6,
+    value: "C",
+  },
+
+  {
+    key: 7,
+    value: "C",
+  },
+  {
+    key: 8,
+    value: "C",
+  },
+  {
+    key: 9,
+    value: "C",
+  },
+  {
+    key: 10,
+    value: "C",
+  },
+  {
+    key: 11,
+    value: "C",
+  },
+  {
+    key: 12,
+    value: "C",
+  },
+  {
+    key: 13,
+    value: "C",
+  },
+  {
+    key: 14,
+    value: "C",
+  },
+  {
+    key: 15,
+    value: "15",
+  },
+  // 中间就不贴了...
+  {
+    key: 45,
+    value: "AS",
+  },
+];
+
 const sites = [
   "Google",
   "Taobao",
@@ -61,4 +130,4 @@ const sites = [
   "Ruby",
 ];
 
-export { arrData, treeData, sites };
+export { arrData, treeData, sites, MY_ENDLESS_LIST };

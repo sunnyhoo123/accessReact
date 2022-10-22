@@ -75,11 +75,15 @@ class Child extends Component {
 
   clickChild = () => {
     console.log("child");
+    this.setState({
+      status: "new",
+    });
   };
 
   render() {
     console.log("子组件---render---");
     const { id } = this.props;
+    const { status } = this.state;
     return (
       <div
         className={styles.child}
@@ -87,6 +91,7 @@ class Child extends Component {
         onClick={() => this.clickChild()}
       >
         <p>{id || "子组件"}</p>
+        <p>{status}</p>
         <Button onClick={() => this.handleClick(1)}>层一ref</Button>
         <div ref={(v) => (this.ref2 = v)}>
           <Button onClick={() => this.handleClick(2)}>层二ref</Button>

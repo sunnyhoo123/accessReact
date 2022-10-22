@@ -8,6 +8,7 @@ import CusInput from "./components/CusInput";
 import CusFlip from "./components/CusFlip/CusFlip";
 import CusString from "./components/CusString";
 import CusResize from "./components/CusResize/CusResize";
+import LoadAndScroll from "./components/LoadAndScroll/LoadAndScroll";
 
 import "./index.css";
 
@@ -52,7 +53,7 @@ class Custom extends Component {
     const { visible, scrollNumList } = this.state;
     return (
       <div>
-        <Tabs defaultActiveKey="7" onChange={this.callback}>
+        <Tabs defaultActiveKey="8" onChange={this.callback}>
           <TabPane tab="table" key="1">
             <CusTable />
           </TabPane>
@@ -91,6 +92,9 @@ class Custom extends Component {
           </TabPane>
           <TabPane tab="CusResize" key="7">
             <CusResize />
+          </TabPane>
+          <TabPane tab="LoadAndScroll" key="8">
+            <LoadAndScroll />
           </TabPane>
         </Tabs>
       </div>

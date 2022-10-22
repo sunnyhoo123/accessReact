@@ -13,7 +13,9 @@ import {
   TabPanels,
   TabPanel,
   useMediaQuery,
+  AspectRatio,
   Accordion,
+  Image,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
@@ -21,6 +23,7 @@ import {
 } from "@chakra-ui/react";
 import { SmallImage, CheckedIcon } from "./index.styles.js";
 import { IconCircleX } from "@tabler/icons";
+import UserImg from "./Message-user-logo.svg";
 
 const ChakraUI = () => {
   return (
@@ -67,6 +70,18 @@ const ChakraUI = () => {
           <TabPanel>3</TabPanel>
         </TabPanels>
       </Tabs>
+      <Box minWidth="60px">
+        <AspectRatio ratio={1}>
+          <Image
+            width="80px"
+            borderRadius="8px"
+            src={UserImg}
+            boxSize="150px"
+            alt="avatar"
+            objectFit="cover"
+          />
+        </AspectRatio>
+      </Box>
     </Box>
   );
 };

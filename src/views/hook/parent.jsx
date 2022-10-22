@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
 import styles from "./index.less";
+import { Button, Tag } from "antd";
 
 import HookChildB from "./components/HookChildB";
-import _ from "lodash";
-import axios from "axios";
 
 const PROJECT_STATUS = Object.freeze({
   0: "New",
@@ -17,7 +15,7 @@ const PROJECT_STATUS = Object.freeze({
 });
 
 const Parent = () => {
-  const [typeList, setTypeList] = useState([]);
+  const [typeList, setTypeList] = useState([{ type: 3 }]);
   const [randomNum, setRandom] = useState(0);
 
   const existing = [];
@@ -32,12 +30,23 @@ const Parent = () => {
     }
     console.log(typeList, 99999);
     setTypeList([...typeList]);
+    setRandom(23);
   };
   console.log(typeList, 77777);
+
+  useEffect(() => {
+    console.log("update parent useEffect");
+  }, [randomNum]);
+
+  const handleParent = (val) => {
+    setRandom(val);
+  };
 
   return (
     <div className={styles.hookWrap}>
       <HookChildB setList={setList} existing={existing}></HookChildB>
+      <Button onClick={() => handleParent(1)}>click 1</Button>
+      <Button onClick={() => setRandom(1)}>setRandom</Button>
     </div>
   );
 };
