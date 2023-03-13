@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-// import { Button } from "antd";
 import {
   Container,
   ScrollBox,
@@ -8,6 +7,7 @@ import {
 } from "./LoadAndScroll.styles";
 import {
   Button,
+  Box,
   AspectRatio,
   Flex,
   Image,
@@ -30,21 +30,27 @@ const LoadAndScroll = () => {
   };
   const add = () => {
     console.log("onLoad");
-    const sites2 = ["1111", "222", "333", "444", "555", "666", "777"];
+    const sites2 = ["111", "222", "333", "444", "555", "666", "777"];
     setList([...sites2, ...sites]);
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  const toTop = () => {
+    // 滑动到顶部 (顶部是相对的)
+    document.getElementById("ScrollBoxOutCom").scrollTo(0, 0);
+  };
+
   return (
     <>
       <Container onLoad={onLoad}>
-        <div>LoadAndScroll</div>
+        <Button onClick={toTop}>ToTop</Button>
         {/* <style onload={alert("onLoad 被触发了")}>123</style> */}
         <ScrollBox>
           <ScrollBoxOut>
-            <ScrollBoxOutCom>
-              {list.map((i) => (
-                <div>{i}</div>
+            <ScrollBoxOutCom id="ScrollBoxOutCom">
+              {list.map((i, index) => (
+                <div key={index}>{i}</div>
               ))}
             </ScrollBoxOutCom>
           </ScrollBoxOut>
@@ -68,8 +74,8 @@ const LoadAndScroll = () => {
                 <ScrollBox>
                   <ScrollBoxOut>
                     <ScrollBoxOutCom>
-                      {list.map((i) => (
-                        <div>{i}</div>
+                      {list.map((i, index) => (
+                        <div key={index}>{i}</div>
                       ))}
                     </ScrollBoxOutCom>
                   </ScrollBoxOut>

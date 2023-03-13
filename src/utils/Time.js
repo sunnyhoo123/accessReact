@@ -1,3 +1,5 @@
+import momentTz from "moment-timezone";
+
 const Time = () => {
   // 1.js获取当前时间戳的方法
   // 第一种：获取的时间戳是把毫秒改成000显示，因为这种方式只精确到秒
@@ -16,4 +18,11 @@ function days(startTime, endTime) {
   const time =
     new Date(endTime || 0).valueOf() - new Date(startTime || 0).valueOf();
   return Math.ceil(time / 86400000) || 0;
+}
+
+// 时区
+export function formatUniversalDate(timestamp) {
+  return `${momentTz(Number(timestamp))
+    .tz("America/Chicago")
+    .format("MM/DD/YYYY hh:mm:ss A z")}`;
 }

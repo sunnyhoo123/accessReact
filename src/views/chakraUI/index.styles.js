@@ -12,3 +12,6 @@ export const CheckedIcon = styled(IconCheck)`
   color: red;
   width: 20px;
 `;
+export const ClickMe = styled.a`
+  color: red;
+`;
