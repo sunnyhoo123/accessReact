@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Select, Input, Space } from "antd";
-
+import { Button } from "ms-react-ui";
 const { Option } = Select;
 
 const selectBefore = (
@@ -39,6 +39,9 @@ class CusInput extends Component {
         </Space>
         {/* 此input无法粘贴 */}
         <input type="text" name="put" defaultValue="无法粘贴"></input>
+        <Button primary label="Open" size="large">
+          Open dialog
+        </Button>
       </div>
     );
   }

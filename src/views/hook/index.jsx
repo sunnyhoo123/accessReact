@@ -106,6 +106,7 @@ const HookCom = () => {
     });
   };
   const downLoadImg = (imgUrl) => {
+    // XMLHttpRequest imgUrl会有跨域问题
     var x = new XMLHttpRequest();
     x.open("GET", imgUrl, true);
     x.responseType = "blob";
